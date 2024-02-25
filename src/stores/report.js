@@ -1,10 +1,10 @@
-import { useAtom } from "jotai";
 import { atomWithStorage } from "jotai/utils";
+import moment from "moment";
 
 const darkModeAtom = atomWithStorage("darkMode", false);
 
-export const dayInfo = atomWithStorage("dailyInfo", {
+export const dayInfoAtom = atomWithStorage("dailyInfo", {
     day: moment(),
-    work: [null, null],
+    work: [moment(), null],
     lunch: [null, null],
 });

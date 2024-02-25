@@ -1,18 +1,11 @@
-import { useEffect, useRef } from "react";
-import { useGSAP } from "@gsap/react";
 import { Domain } from "./Domain";
-import { TimeStamp } from "./TimeStamp";
-import { twJoin } from "tailwind-merge";
-import { growing } from "@/gsap/tweens";
+import { TimeTable } from "./TimeTable";
 
 export const Board = ({ domains }) => {
     return (
-        <div className="h-full aspect-[9/16] bg-black overflow-hidden">
-            <div
-                id="board"
-                className={twJoin("relative flex min-h-full justify-end")}
-            >
-                <TimeStamp />
+        <div className="relative w-[26rem] h-full bg-black overflow-scroll">
+            <TimeTable />
+            <div className="absolute top-0 left-10 flex min-h-full justify-end items-end flex-nowrap ">
                 {domains.map((domain) => (
                     <Domain
                         key={domain.id}
