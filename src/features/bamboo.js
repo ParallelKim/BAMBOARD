@@ -17,3 +17,18 @@ export const addBamboo = (val, set, taskName) => {
             ],
         }));
 };
+
+export const finishBamboo = (val, set, index) => {
+    if (val.bamboos[index].end) return;
+    set((old) => ({
+        id: old.id,
+        bamboos: [
+            ...old.bamboos.slice(0, index),
+            {
+                ...old.bamboos[index],
+                end: moment(),
+            },
+            ...old.bamboos.slice(index + 1),
+        ],
+    }));
+};
